@@ -37,7 +37,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -77,7 +79,8 @@ fun ShowData(listItems: MutableList<String>, imageUrl: String) {
 fun ShowData2(listItems: MutableList<String>, imageUrl: String) {
     val pagerState = rememberPagerState(pageCount = { listItems.size })
     HorizontalPager(
-        state= pagerState,
+        modifier = Modifier.padding(bottom = 16.dp),
+        state = pagerState,
         pageSize = PageSize.Fixed(200.dp),
     ) { page ->
         val item = listItems[page]
@@ -85,7 +88,8 @@ fun ShowData2(listItems: MutableList<String>, imageUrl: String) {
         LaunchedEffect(item) {
             generateImage(item + " logo") { result -> imgUrl = result.toString() }
         }
-        Card(modifier = Modifier.size(180.dp)
+        Card(modifier = Modifier
+            .size(180.dp)
             .graphicsLayer {
                 val pageOffset =
                     ((pagerState.currentPage - page) + pagerState.currentPageOffsetFraction).absoluteValue
@@ -108,7 +112,7 @@ fun ShowData2(listItems: MutableList<String>, imageUrl: String) {
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxWidth(),
-                    contentScale = ContentScale.Fit
+                    contentScale = ContentScale.Crop
                 )
                 Box(
                     modifier = Modifier
@@ -126,6 +130,7 @@ fun ShowData2(listItems: MutableList<String>, imageUrl: String) {
         }
     }
 }
+
 @Composable
 @Preview(showBackground = true)
 fun ShowDataPreview() {
@@ -141,14 +146,18 @@ fun ShowUserFlow(listItems: MutableList<String>) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = item)
-                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = item,
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(bottom = 4.dp)
+                )
                 Icon(
                     imageVector = Icons.Filled.KeyboardArrowDown,
                     contentDescription = null,
-                    modifier = Modifier.size(40.dp)
+                    modifier = Modifier
+                        .size(60.dp)
+                        .padding(bottom = 4.dp)
                 )
-                Spacer(modifier = Modifier.height(4.dp))
             }
         }
     }
@@ -156,34 +165,51 @@ fun ShowUserFlow(listItems: MutableList<String>) {
 
 
 @Composable
-fun ShowDesignInspirationorApi(listItems1: MutableList<String>, listItems2: MutableList<String>) {
-    Column() {
-        listItems1.forEach() { item ->
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(text = item)
-                Text(text = listItems2[listItems1.indexOf(item)])
-                Spacer(modifier = Modifier.height(4.dp))
-
-            }
+fun ShowDesignInspirationApi(listItems1: MutableList<String>, listItems2: MutableList<String>) {
+    listItems1.forEach() { item ->
+        Column(
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+        ) {
+            Text(text = " ● " + item, fontSize = 18.sp)
+            Text(
+                text = listItems2[listItems1.indexOf(item)], fontSize = 18.sp,
+                modifier = Modifier.padding(start = 8.dp)
+            )
         }
     }
 }
 
 @Composable
 fun ShowRiskAndSolution(listItems1: MutableList<String>, listItems2: MutableList<String>) {
-    Column() {
-        listItems1.forEach() { item ->
-            Column(
-                horizontalAlignment = Alignment.Start,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(text = "Q: " + item)
-                Text(text = "Ans" + listItems2[listItems1.indexOf(item)])
-                Spacer(modifier = Modifier.height(4.dp))
-
+    listItems1.forEach() { item ->
+        Column(
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
+        ) {
+            Row {
+                Text(
+                    text = "Que: ",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(end = 4.dp)
+                )
+                Text(
+                    text = item + "?.",
+                    fontSize = 18.sp
+                )
+            }
+            Row {
+                Text(
+                    text = "Ans: ",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(end = 4.dp) // Optional, for spacing between "Ans:" and the answer
+                )
+                Text(
+                    text = listItems2[listItems1.indexOf(item)],
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(bottom = 4.dp)
+                )
             }
         }
     }
@@ -191,14 +217,14 @@ fun ShowRiskAndSolution(listItems1: MutableList<String>, listItems2: MutableList
 
 @Composable
 fun ShowProjectSchedule(listItems1: MutableList<String>, listItems2: MutableList<String>) {
-    Column() {
+    Column(modifier = Modifier.padding(bottom = 16.dp)) {
         listItems1.forEach() { item ->
             Row(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = item)
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(text = listItems2[listItems1.indexOf(item)])
+                Text(text = listItems2[listItems1.indexOf(item)], fontSize = 18.sp)
+                Text(text = "  :  " + item, fontSize = 18.sp)
+
             }
         }
     }
@@ -206,9 +232,19 @@ fun ShowProjectSchedule(listItems1: MutableList<String>, listItems2: MutableList
 
 @Composable
 fun ShowFeatureList(listItems: MutableList<String>) {
-    Column() {
+    Column(modifier = Modifier.padding(bottom = 16.dp)) {
         listItems.forEach() { item ->
-            Text(text = listItems.indexOf(item).toString() + ". " + item)
+            Row {
+                Text(
+                    text = " ● ",
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(end = 4.dp) // Optional, for spacing between bullet and text
+                )
+                Text(
+                    text = item,
+                    fontSize = 18.sp
+                )
+            }
         }
     }
 }
@@ -218,7 +254,7 @@ fun DrawLine() {
     Canvas(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp, vertical = 8.dp)
+            .padding(vertical = 8.dp)
     ) {
         drawLine(
             color = Color.Red,

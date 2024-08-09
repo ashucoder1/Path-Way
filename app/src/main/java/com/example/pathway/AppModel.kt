@@ -187,6 +187,7 @@ fun generateImage(term: String="circle", callback:(String?)-> Unit){
                     callback(null)
                 }
             }else {
+                Log.e("API_ERROR", "Response code: ${response.code}, message: ${response.message}")
                 callback(null)
             }
         }

@@ -16,9 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pathway.DrawLine
 import com.example.pathway.GlobalState
-import com.example.pathway.ShowData
 import com.example.pathway.ShowData2
-import com.example.pathway.ShowDesignInspirationorApi
+import com.example.pathway.ShowDesignInspirationApi
 import com.example.pathway.ShowFeatureList
 import com.example.pathway.ShowProjectSchedule
 import com.example.pathway.ShowRiskAndSolution
@@ -158,93 +157,83 @@ fun PathScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 16.dp, start = 8.dp, bottom = 18.dp)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .padding(top = 32.dp, end = 8.dp, bottom = 32.dp)
+                .verticalScroll(rememberScrollState())
         )
         {
             Text(
                 text = name,
-                fontSize = 28.sp,
+                fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier.padding(bottom = 16.dp).align(Alignment.End)
             )
             Text(
                 text = description,
                 fontSize = 18.sp,
                 fontStyle = FontStyle.Italic,
-                modifier = Modifier.padding(bottom = 8.dp)
+                modifier = Modifier.padding(bottom = 16.dp).align(Alignment.Start)
             )
 
-            DrawLine()
-
-            Text(text = "Goals:", fontSize = 18.sp)
+            Text(text = "Goals:",
+                fontSize = 24.sp,
+                modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp)
+            )
             ShowFeatureList(listItems = goalsList)
 
-            DrawLine()
-            Text(text = "Target Audience:", fontSize = 18.sp)
+
+            Text(text = "Target Audience:", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowFeatureList(listItems = targetAudienceList)
 
-            DrawLine()
-            Text(text = "Project Schedule:", fontSize = 18.sp)
+
+            Text(text = "Project Schedule:", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowProjectSchedule(listItems1 = durationList, listItems2 = phaseList)
 
-            DrawLine()
-
-            Text(text = "Front-End Technologies", fontSize = 18.sp)
+            Text(text = "Front-End Technologies", fontSize = 24.sp, modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowData2(
                 listItems = frontendList,
                 imageUrl = "https://plus.unsplash.com/premium_photo-1721276303391-ee0af231d021?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             )
 
 
-            Text(text = "Back-End Technologies", fontSize = 18.sp)
+            Text(text = "Back-End Technologies", fontSize = 24.sp, modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowData2(
                 listItems = backendList,
                 imageUrl = "https://plus.unsplash.com/premium_photo-1721276303391-ee0af231d021?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             )
 
-            Text(text = "DataBase Technologies", fontSize = 18.sp)
+            Text(text = "DataBase Technologies", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowData2(
                 listItems = databaseList,
                 imageUrl = "https://plus.unsplash.com/premium_photo-1721276303391-ee0af231d021?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             )
 
-            Text(text = "Other Technologies", fontSize = 18.sp)
+            Text(text = "Other Technologies", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowData2(
                 listItems = otherList,
                 imageUrl = "https://plus.unsplash.com/premium_photo-1721276303391-ee0af231d021?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             )
 
-            DrawLine()
-
-            Text(text = "User Flow of the Application:", fontSize = 18.sp)
+            Text(text = "User Flow of the Application:", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowUserFlow(listItems = userFlowList)
-            Text(text = "App Completed")
+            Text(text = "App Completed", fontSize = 18.sp, modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 16.dp))
 
-            DrawLine()
 
-            Text(text = "Design Inspirations", fontSize = 18.sp)
-            ShowDesignInspirationorApi(
+            Text(text = "Design Inspirations", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
+            ShowDesignInspirationApi(
                 listItems1 = designInspirationList,
                 listItems2 = designInspirationUrlList
             )
-            DrawLine()
-            Text(text = "Resources for APIs", fontSize = 18.sp)
-            ShowDesignInspirationorApi(listItems1 = apiList, listItems2 = apiUrlList)
 
+            Text(text = "Resources for APIs", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
+            ShowDesignInspirationApi(listItems1 = apiList, listItems2 = apiUrlList)
 
-            DrawLine()
-            Text(text = "Basic or Must-Have Features", fontSize = 18.sp)
+            Text(text = "Basic or Must-Have Features", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowFeatureList(listItems = featureList)
-            DrawLine()
 
+            Text(text = "Best Technology or Framework", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
+            Text(text = bestTech, fontSize = 18.sp, modifier = Modifier.padding(bottom = 16.dp))
 
-            Text(text = "Best Technology or Framework", fontSize = 18.sp)
-            Text(text = bestTech)
-
-            DrawLine()
-            Text(text = "Risk and Solutions", fontSize = 18.sp)
+            Text(text = "Risk and Solutions", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowRiskAndSolution(listItems1 = riskList, listItems2 = solutionList)
 
         }
