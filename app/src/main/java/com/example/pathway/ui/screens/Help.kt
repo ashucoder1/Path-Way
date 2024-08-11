@@ -35,18 +35,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pathway.ui.theme.Manhattan
+import com.example.pathway.ui.theme.ManhattanLight
 
 @Composable
 fun HelpScreen() {
     val questionsAndAnswers = listOf(
-        "What is this app about?" to "This app provides a roadmap for learning various technologies.",
-        "How do I use this app?" to "Navigate through the different screens to explore tech stacks and user flows.",
-        "What technologies are covered in the app?" to "The app covers front-end, back-end, database, and other technologies.",
+        "What is this app about?" to "This app provides a roadmap for developing various applications and give us a PathWay to do so.",
+        "How do I use this app?" to "Navigate through the different screens to explore features of this application.",
+        "What technologies are covered in the app?" to "The app covers front-end, back-end, database,apis, designs, user flow and other technologies.",
         "Can I add my own technologies?" to "Currently, adding custom technologies is not supported.",
-        "How do I track my progress?" to "You can track your progress through the user flow and roadmap sections.",
+        "How do I track my progress?" to "You can track your progress through the user flow and roadmap sections (Available Soon).",
         "Is there a way to save my progress?" to "Saving progress is not yet implemented. This feature might be added in future updates.",
-        "How can I contact support?" to "For support, please contact us via the 'Contact Us' section in the app.",
-        "Are there any tutorials available?" to "Yes, tutorials are available in the resources section of the app.",
+        "How can I contact support?" to "For support, please contact us via the the Github page section of the app.",
+        "Are there any tutorials available?" to "Yes, tutorials are available in the Home-Screen section of the app.",
         "How frequently is the content updated?" to "Content updates depend on technology trends and user feedback.",
         "Can I suggest new features?" to "Feature suggestions can be submitted via the feedback form in the app."
     )
@@ -87,7 +88,7 @@ fun ExpandableFAQCard(question: String, answer: String) {
         modifier = Modifier
             .fillMaxWidth()
             .clickable { expanded = !expanded },
-        colors = CardDefaults.cardColors(containerColor = Manhattan.copy(alpha = 0.7f))
+        colors = CardDefaults.cardColors(containerColor = ManhattanLight.copy(alpha = 0.7f))
     ) {
         Column(
             modifier = Modifier

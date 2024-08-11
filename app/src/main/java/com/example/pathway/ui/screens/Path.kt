@@ -215,7 +215,7 @@ fun PathScreen() {
 
             Text(text = "User Flow of the Application:", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))
             ShowUserFlow(listItems = userFlowList)
-            Text(text = "App Completed", fontSize = 18.sp, modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 16.dp))
+            Text(text = "User Flow Completed", fontSize = 18.sp, modifier = Modifier.align(Alignment.CenterHorizontally).padding(bottom = 16.dp))
 
 
             Text(text = "Design Inspirations", fontSize = 24.sp,modifier = Modifier.align(Alignment.Start).padding(bottom = 8.dp))

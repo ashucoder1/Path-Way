@@ -140,11 +140,10 @@ fun ShowDataPreview() {
 
 @Composable
 fun ShowUserFlow(listItems: MutableList<String>) {
-    Column() {
         listItems.forEach() { item ->
             Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
                     text = item,
@@ -160,7 +159,6 @@ fun ShowUserFlow(listItems: MutableList<String>) {
                 )
             }
         }
-    }
 }
 
 
@@ -168,12 +166,12 @@ fun ShowUserFlow(listItems: MutableList<String>) {
 fun ShowDesignInspirationApi(listItems1: MutableList<String>, listItems2: MutableList<String>) {
     listItems1.forEach() { item ->
         Column(
-            modifier = Modifier.fillMaxWidth().padding(16.dp)
+            modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
         ) {
             Text(text = " ● " + item, fontSize = 18.sp)
             Text(
                 text = listItems2[listItems1.indexOf(item)], fontSize = 18.sp,
-                modifier = Modifier.padding(start = 8.dp)
+                modifier = Modifier.padding(end = 4.dp)
             )
         }
     }

@@ -15,6 +15,7 @@ val Terracotta = Color(0xEDE38464)
 val Amulet=Color(0xFF79A077)
 val Antique_Brass=Color(0xFFCA8054)
 val Manhattan=Color(0xFFF5CC9B)
+val ManhattanLight=Color(0xFFF7DBBA)
 val Brown=Color(0xDCE76219)
 
 
