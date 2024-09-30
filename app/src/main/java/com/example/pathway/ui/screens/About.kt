@@ -28,7 +28,7 @@ fun AboutScreen() {
         )
         {
             Text(
-                text = "PathWay",
+                text = "PathWay AI",
                 fontSize = 32.sp,
                 fontWeight = FontWeight.SemiBold
             )
@@ -39,7 +39,19 @@ fun AboutScreen() {
             )
             Spacer(modifier = Modifier.height(12.dp))
             Text(
+                text = "Sandesh Srivastav",
+                fontSize = 24.sp,
+                fontStyle = FontStyle.Italic
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
                 text = "Ashu Yadav",
+                fontSize = 24.sp,
+                fontStyle = FontStyle.Italic
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
+                text = "kitty",
                 fontSize = 24.sp,
                 fontStyle = FontStyle.Italic
             )

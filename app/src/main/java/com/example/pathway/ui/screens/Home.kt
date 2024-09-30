@@ -126,7 +126,7 @@ fun HomeScreen() {
         }
         Crossfade(
             targetState = item,
-            animationSpec = tween(durationMillis = 1000)
+            animationSpec = tween(durationMillis = 500)
         ) { currentItem ->
             Card(
                 modifier = Modifier

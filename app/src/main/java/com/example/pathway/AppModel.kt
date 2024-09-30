@@ -104,9 +104,10 @@ fun generateFunction(userInput:String,callback:(String)-> Unit){
             val request = Request.Builder()
                 .url("https://api.groq.com/openai/v1/chat/completions")
                 .post(requestBody.toRequestBody(MEDIA_TYPE))
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer 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")
                 .header("Content-Type", "application/json")
                 .build()
+
 
             client.newCall(request).execute().use { response ->
                 if (!response.isSuccessful) {
